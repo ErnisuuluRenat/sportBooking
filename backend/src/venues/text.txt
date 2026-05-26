@@ -1,0 +1,13 @@
+curl -X POST http://localhost:3000/api/venues \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OWY4ZWQ1NTFkMjE5NjdhYWVhZjU3YmQiLCJlbWFpbCI6ImFsaUB0ZXN0LmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzc3OTIxNDY0LCJleHAiOjE3Nzg1MjYyNjR9.Ua_1ocyJBe0-MaDIHQ1R9DhaDwHW5KsDcTHL8WP1ycw" \
+  -d '{
+    "name": "Футбольное поле Динамо",
+    "description": "Профессиональное футбольное поле с искусственным покрытием",
+    "sportType": "football",
+    "address": "Ташкумырская улица, 2а",
+    "city": "Бишкек",
+    "pricePerHour": 1500,
+    "amenities": ["душ", "раздевалка", "парковка"],
+    "coordinates": [74.5698, 42.8746]
+  }'

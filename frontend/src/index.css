@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Тёмная тема (по умолчанию) */
+:root {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #111111;
+  --bg-card: #141414;
+  --border-subtle: #1c1c1c;
+  --border-default: #222222;
+  --border-hover: #2a2a2a;
+  --orange-dim: rgba(249, 115, 22, 0.08);
+  --orange-border: rgba(249, 115, 22, 0.25);
+  --text-primary: #ffffff;
+  --text-secondary: #888888;
+  --text-muted: #444444;
+  --text-ghost: #2e2e2e;
+}
+
+/* Светлая тема */
+html.light {
+  --bg-primary: #f8f8f7;
+  --bg-secondary: #ffffff;
+  --bg-card: #f0f0ef;
+  --border-subtle: #e5e5e3;
+  --border-default: #d8d8d5;
+  --border-hover: #c0c0bc;
+  --orange-dim: rgba(249, 115, 22, 0.08);
+  --orange-border: rgba(249, 115, 22, 0.25);
+  --text-primary: #0a0a0a;
+  --text-secondary: #555555;
+  --text-muted: #888888;
+  --text-ghost: #bbbbbb;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #0a0a0a;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 2px;
+}
+
+html:not(.light) {
+  color-scheme: dark;
+}
+
+html.light {
+  color-scheme: light;
+}
+
+/* Фикс для хардкоженного белого текста в светлой теме */
+html.light h1,
+html.light h2,
+html.light h3,
+html.light p {
+  color: var(--text-primary);
+}
