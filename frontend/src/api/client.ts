@@ -15,8 +15,14 @@ client.interceptors.response.use(
   (res) => res,
   (err) => {
     if (err.response?.status === 401) {
-      localStorage.removeItem('token')
-      window.location.href = '/login'
+      const token = localStorage.getItem('token')
+      const isAuthEndpoint = err.config?.url?.includes('/auth/')
+      // Редиректим только если токен был и он протух
+      if (token && !isAuthEndpoint) {
+        localStorage.removeItem('token')
+        localStorage.removeItem('user')
+        window.location.href = '/login'
+      }
     }
     return Promise.reject(err)
   }
