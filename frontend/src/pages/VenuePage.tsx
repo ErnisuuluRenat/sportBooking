@@ -179,15 +179,18 @@ export const VenuePage = () => {
   const bgGrad = BG_COLORS[venue.sportType] ?? BG_COLORS.other;
 
   // Проверка прав на редактирование
-  const ownerId =
-    typeof venue.owner === "object" ? (venue.owner as any)._id : venue.owner;
+  const ownerId = venue?.owner
+    ? typeof venue.owner === "object"
+      ? (venue.owner as any)._id
+      : venue.owner
+    : null;
   const canEdit =
     isAuthenticated && (user?.role === "admin" || ownerId === user?.id);
 
-    // Посмотри данные объекта
-fetch('http://localhost:3000/api/venues/6a159f1e5114119a1eddf7cc')
-  .then(r => r.json())
-  .then(d => console.log('location:', d.location))
+  // Посмотри данные объекта
+  fetch("http://localhost:3000/api/venues/6a159f1e5114119a1eddf7cc")
+    .then((r) => r.json())
+    .then((d) => console.log("location:", d.location));
 
   return (
     <div className="min-h-screen bg-bg-primary">
